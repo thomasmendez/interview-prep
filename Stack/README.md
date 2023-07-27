@@ -15,39 +15,24 @@ Space Complexity: O(1)
 Stack Pseudo-code:
 
 ```python
-# Node class to represent each node in the linked list
-class Node:
-    def __init__(self, data):
-        # Initialize a node with the given data
-
-
-# LinkedList class to manage the linked list operations
-class LinkedList:
+class Stack:
     def __init__(self):
-        # Initialize an empty linked list
+        # Initialize an empty list to store the stack elements
 
-    def append(self, data):
-        # Append a new node at the end of the linked list
+    def is_empty(self):
+        # Check if the stack is empty
 
-    def prepend(self, data):
-        # Prepend a new node at the beginning of the linked list
+    def push(self, item):
+        # Add an element to the top of the stack
 
-    def insert_after(self, prev_node, data):
-        # Insert a new node after a given previous node
+    def pop(self):
+        # Remove and return the top element from the stack if it's not empty
+        # If the stack is empty, return False to indicate failure
 
-    def delete_node(self, data):
-        # Delete a node with the given data from the linked list
-
-    def display(self):
-        # Display the elements of the linked list
-
-    def search(self, data):
-        # Search for a node with the given data in the linked list
-
-    def access_by_index(self, index):
-        # Access the data of the node at the given index in the linked list
+    def peek(self):
+        # Get the top element from the stack without removing it
+        # Return the element if the stack is not empty, otherwise return False to indicate failure
 
     def size(self):
-        # Get the number of nodes in the linked list
-
+        # Return the number of elements in the stack
 ```
