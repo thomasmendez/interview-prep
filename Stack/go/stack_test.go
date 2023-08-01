@@ -58,8 +58,8 @@ func TestStack(t *testing.T) {
 
 	stack.push(1)
 
-	// Test IsEmpty() on a non-empty stack
-	if stack.IsEmpty() {
+	// Test isEmpty() on a non-empty stack
+	if stack.isEmpty() {
 		t.Error("Expected stack not to be empty, but it is")
 	}
 }
