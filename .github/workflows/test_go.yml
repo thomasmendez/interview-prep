@@ -23,5 +23,5 @@ jobs:
 
     - name: Run tests
       run: |
-        go mod init
+        go mod init github.com/thomasmendez/interview-prep
         make test-go
