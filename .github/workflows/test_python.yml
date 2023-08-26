@@ -13,8 +13,6 @@ jobs:
 
     - name: Set up Python
       uses: actions/setup-python@v2
-      with:
-        python-version: 'latest'
 
     - name: Install dependencies
       run: make install
