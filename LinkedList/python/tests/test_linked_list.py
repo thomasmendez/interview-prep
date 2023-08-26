@@ -7,27 +7,27 @@ class LinkedListTestCase(unittest.TestCase):
 
     def test_append(self):
         self.linked_list.append(1)
-        self.assertEqual(self.linked_list.head.data, 1)
+        self.assertEqual(self.linked_list.head.value, 1)
 
     def test_prepend(self):
         self.linked_list.prepend(1)
-        self.assertEqual(self.linked_list.head.data, 1)
+        self.assertEqual(self.linked_list.head.value, 1)
 
         self.linked_list.prepend(0)
-        self.assertEqual(self.linked_list.head.data, 0)
+        self.assertEqual(self.linked_list.head.value, 0)
 
     def test_insert_after(self):
         self.linked_list.append(1)
         self.linked_list.append(3)
         self.linked_list.insert_after(self.linked_list.head, 2)
-        self.assertEqual(self.linked_list.head.next.data, 2)
+        self.assertEqual(self.linked_list.head.next.value, 2)
 
     def test_delete_node(self):
         self.linked_list.append(1)
         self.linked_list.append(2)
         self.linked_list.append(3)
         self.linked_list.delete_node(2)
-        self.assertEqual(self.linked_list.head.next.data, 3)
+        self.assertEqual(self.linked_list.head.next.value, 3)
 
     def test_search(self):
         self.linked_list.append(1)

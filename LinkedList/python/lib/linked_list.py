@@ -1,14 +1,14 @@
 class Node:
-    def __init__(self, data):
-        self.data = data
+    def __init__(self, value):
+        self.value = value
         self.next = None
 
 class LinkedList:
     def __init__(self):
         self.head = None
 
-    def append(self, data):
-        new_node = Node(data)
+    def append(self, value):
+        new_node = Node(value)
         if self.head is None:
             self.head = new_node
         else:
@@ -17,42 +17,42 @@ class LinkedList:
                 current = current.next
             current.next = new_node
 
-    def prepend(self, data):
-        new_node = Node(data)
+    def prepend(self, value):
+        new_node = Node(value)
         new_node.next = self.head
         self.head = new_node
 
-    def insert_after(self, prev_node, data):
+    def insert_after(self, prev_node, value):
         if not prev_node:
             print("Previous node is not in the list.")
             return
-        new_node = Node(data)
+        new_node = Node(value)
         new_node.next = prev_node.next
         prev_node.next = new_node
 
-    def delete_node(self, data):
+    def delete_node(self, value):
+        if not self.head:
+            return
+        
+        # Special case: if the head node needs to be deleted
+        if self.head.value == value:
+            self.head = self.head.next
+            return
+        
+        # Traverse the list to find the node before the one to delete
         current = self.head
-
-        if current and current.data == data:
-            self.head = current.next
-            current = None
-            return
-
-        prev = None
-        while current and current.data != data:
-            prev = current
+        while current.next:
+            if current.next.value == value:
+                current.next = current.next.next
+                return
             current = current.next
+        
+        print(f"Node with value {value} not found.")
 
-        if current is None:
-            return
-
-        prev.next = current.next
-        current = None
-
-    def search(self, data):
+    def search(self, value):
         current = self.head
         while current:
-            if current.data == data:
+            if current.value == value:
                 return True
             current = current.next
         return False
@@ -62,7 +62,7 @@ class LinkedList:
         count = 0
         while current:
             if count == index:
-                return current.data
+                return current.value
             count += 1
             current = current.next
         raise IndexError("Index out of range")
@@ -78,7 +78,7 @@ class LinkedList:
     def display(self):
         current = self.head
         while current:
-            print(current.data, end=" ")
+            print(current.value, end=" ")
             current = current.next
         print()
 

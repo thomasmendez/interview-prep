@@ -3,16 +3,16 @@ package main
 import "fmt"
 
 type Node struct {
-	data int
-	next *Node
+	value int
+	next  *Node
 }
 
 type LinkedList struct {
 	head *Node
 }
 
-func (l *LinkedList) append(data int) {
-	newNode := &Node{data: data, next: nil}
+func (l *LinkedList) append(value int) {
+	newNode := &Node{value: value, next: nil}
 
 	if l.head == nil {
 		l.head = newNode
@@ -25,34 +25,34 @@ func (l *LinkedList) append(data int) {
 	}
 }
 
-func (l *LinkedList) prepend(data int) {
-	newNode := &Node{data: data, next: l.head}
+func (l *LinkedList) prepend(value int) {
+	newNode := &Node{value: value, next: l.head}
 	l.head = newNode
 }
 
-func (l *LinkedList) insertAfter(prevNode *Node, data int) {
+func (l *LinkedList) insertAfter(prevNode *Node, value int) {
 	if prevNode == nil {
 		fmt.Println("Previous node cannot be nil.")
 		return
 	}
 
-	newNode := &Node{data: data, next: prevNode.next}
+	newNode := &Node{value: value, next: prevNode.next}
 	prevNode.next = newNode
 }
 
-func (l *LinkedList) deleteNode(data int) {
+func (l *LinkedList) deleteNode(value int) {
 	if l.head == nil {
 		return
 	}
 
-	if l.head.data == data {
+	if l.head.value == value {
 		l.head = l.head.next
 		return
 	}
 
 	current := l.head
 	for current.next != nil {
-		if current.next.data == data {
+		if current.next.value == value {
 			current.next = current.next.next
 			return
 		}
@@ -60,10 +60,10 @@ func (l *LinkedList) deleteNode(data int) {
 	}
 }
 
-func (l *LinkedList) search(data int) bool {
+func (l *LinkedList) search(value int) bool {
 	current := l.head
 	for current != nil {
-		if current.data == data {
+		if current.value == value {
 			return true
 		}
 		current = current.next
@@ -76,7 +76,7 @@ func (l *LinkedList) accessByIndex(index int) (int, error) {
 	count := 0
 	for current != nil {
 		if count == index {
-			return current.data, nil
+			return current.value, nil
 		}
 		count++
 		current = current.next
@@ -97,7 +97,7 @@ func (l *LinkedList) size() int {
 func (l *LinkedList) display() {
 	current := l.head
 	for current != nil {
-		fmt.Printf("%d ", current.data)
+		fmt.Printf("%d ", current.value)
 		current = current.next
 	}
 	fmt.Println()

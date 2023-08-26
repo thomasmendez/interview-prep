@@ -31,8 +31,8 @@ func TestLinkedList(t *testing.T) {
 	}
 
 	// Test AccessByIndex
-	data, err := ll.accessByIndex(2)
-	if err != nil || data != 15 {
+	value, err := ll.accessByIndex(2)
+	if err != nil || value != 15 {
 		t.Error("AccessByIndex Test: Failed to access element at index 2")
 	}
 	_, err = ll.accessByIndex(5)
@@ -52,7 +52,7 @@ func getLinkedListAsString(ll *LinkedList) string {
 	var sb string
 	current := ll.head
 	for current != nil {
-		sb += fmt.Sprintf("%d -> ", current.data)
+		sb += fmt.Sprintf("%d -> ", current.value)
 		current = current.next
 	}
 	sb += "nil"

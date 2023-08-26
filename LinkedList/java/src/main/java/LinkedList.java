@@ -4,18 +4,18 @@ public class LinkedList {
     public Node head;
 
     public static class Node {
-        public int data;
+        public int value;
         public Node next;
 
-        Node(int data) {
-            this.data = data;
+        Node(int value) {
+            this.value = value;
             this.next = null;
         }
     }
 
-    // Append a new node with the given data at the end of the linked list
-    public void append(int data) {
-        Node newNode = new Node(data);
+    // Append a new node with the given value at the end of the linked list
+    public void append(int value) {
+        Node newNode = new Node(value);
         if (head == null) {
             head = newNode;
         } else {
@@ -27,54 +27,52 @@ public class LinkedList {
         }
     }
 
-    // Prepend a new node with the given data at the beginning of the linked list
-    public void prepend(int data) {
-        Node newNode = new Node(data);
+    // Prepend a new node with the given value at the beginning of the linked list
+    public void prepend(int value) {
+        Node newNode = new Node(value);
         newNode.next = head;
         head = newNode;
     }
 
-    // Insert a new node with the given data after the given node
-    public void insertAfter(Node prevNode, int data) {
+    // Insert a new node with the given value after the given node
+    public void insertAfter(Node prevNode, int value) {
         if (prevNode == null) {
             System.out.println("Previous node cannot be null.");
             return;
         }
-        Node newNode = new Node(data);
+        Node newNode = new Node(value);
         newNode.next = prevNode.next;
         prevNode.next = newNode;
     }
 
-    // Delete a node with the given data from the linked list
-    public void deleteNode(int data) {
+    // Delete a node with the given value from the linked list
+    public void deleteNode(int value) {
         if (head == null) {
             System.out.println("Linked list is empty.");
             return;
         }
-        if (head.data == data) {
+        if (head.value == value) {
             head = head.next;
             return;
         }
 
         Node current = head;
-        Node prev = null;
-        while (current != null) {
-            if (current.data == data) {
-                prev.next = current.next;
+        while (current.next != null) {
+            if (current.next.value == value) {
+                current.next = current.next.next;
                 return;
             }
-            prev = current;
             current = current.next;
         }
 
         System.out.println("Data not found in the linked list.");
     }
 
-    // Search for a node with the given data in the linked list
-    public boolean search(int data) {
+    // Search for a node with the given value in the linked list
+    public boolean search(int value) {
         Node current = head;
         while (current != null) {
-            if (current.data == data) {
+            if (current.value == value) {
                 return true;
             }
             current = current.next;
@@ -82,13 +80,13 @@ public class LinkedList {
         return false;
     }
 
-    // Access the data of the node at the given index in the linked list
+    // Access the value of the node at the given index in the linked list
     public int accessByIndex(int index) {
         Node current = head;
         int count = 0;
         while (current != null) {
             if (count == index) {
-                return current.data;
+                return current.value;
             }
             count++;
             current = current.next;
@@ -111,7 +109,7 @@ public class LinkedList {
     public void display() {
         Node current = head;
         while (current != null) {
-            System.out.print(current.data + " -> ");
+            System.out.print(current.value + " -> ");
             current = current.next;
         }
         System.out.println("null");

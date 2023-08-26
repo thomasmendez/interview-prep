@@ -38,7 +38,7 @@ public class LinkedListTest {
         linkedList.append(20);
         linkedList.append(30);
 
-        // Insert after the node with data 10
+        // Insert after the node with value 10
         linkedList.insertAfter(linkedList.head, 15);
 
         // Add assertions to verify the linked list after inserting
@@ -53,7 +53,7 @@ public class LinkedListTest {
         linkedList.append(20);
         linkedList.append(30);
 
-        // Delete the node with data 20
+        // Delete the node with value 20
         linkedList.deleteNode(20);
 
         // Add assertions to verify the linked list after deletion
@@ -106,7 +106,7 @@ public class LinkedListTest {
         StringBuilder sb = new StringBuilder();
         LinkedList.Node current = linkedList.head;
         while (current != null) {
-            sb.append(current.data).append(" -> ");
+            sb.append(current.value).append(" -> ");
             current = current.next;
         }
         sb.append("null");
