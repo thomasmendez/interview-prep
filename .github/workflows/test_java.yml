@@ -14,8 +14,5 @@ jobs:
     - name: Set up Java
       uses: actions/setup-java@v2
 
-    - name: Install dependencies
-      run: make install
-
     - name: Run tests
       run: make test-java
