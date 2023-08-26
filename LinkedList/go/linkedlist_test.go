@@ -13,7 +13,6 @@ func TestLinkedList(t *testing.T) {
 	ll.prepend(5)
 	ll.insertAfter(ll.head.next, 15)
 	ll.deleteNode(20)
-	ll.display()
 
 	// Test Append
 	expectedOutput := "5 -> 10 -> 15 -> 30 -> nil"

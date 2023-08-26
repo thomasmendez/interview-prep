@@ -1,0 +1,23 @@
+name: Java Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: Run Java Tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: 'latest'
+
+    - name: Install dependencies
+      run: make install
+
+    - name: Run tests
+      run: make test-java

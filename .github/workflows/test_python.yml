@@ -1,0 +1,23 @@
+name: Python Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: Run Python Tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 'latest'
+
+    - name: Install dependencies
+      run: make install
+
+    - name: Run tests
+      run: make test-python

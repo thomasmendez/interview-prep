@@ -1,5 +1,12 @@
-test: # @HELP python run all tests
-test:
-	cd python && python -m unittest discover
-	cd go && go test
-	cd java && gradle test
+.PHONY: test
+
+test: test-python test-go test-java
+
+test-python:
+	@ cd python && python -m unittest discover
+
+test-go:
+	@ cd go && go test
+
+test-java:
+	@ cd java && gradle test
