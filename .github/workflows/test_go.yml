@@ -4,6 +4,8 @@ on: [push, pull_request]
 
 env:
   GO111MODULE: on
+  GOPATH: ${{ github.workspace }}
+  GOBIN: ${{ github.workspace }}/bin
 
 jobs:
   test:
