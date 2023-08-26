@@ -22,4 +22,6 @@ jobs:
         go-version: 'stable'
 
     - name: Run tests
-      run: make test-go
+      run: |
+        go mod init
+        make test-go
