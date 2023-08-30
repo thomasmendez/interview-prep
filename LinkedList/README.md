@@ -53,8 +53,8 @@ Singly Linked List Pseudo-code:
 ```python
 # Node class to represent each node in the linked list
 class Node:
-    def __init__(self, data):
-        # Initialize a node with the given data
+    def __init__(self, value):
+        # Initialize a node with the given value
 
 
 # LinkedList class to manage the linked list operations
@@ -62,28 +62,74 @@ class LinkedList:
     def __init__(self):
         # Initialize an empty linked list
 
-    def append(self, data):
+    def append(self, value):
         # Append a new node at the end of the linked list
 
-    def prepend(self, data):
+    def prepend(self, value):
         # Prepend a new node at the beginning of the linked list
 
-    def insert_after(self, prev_node, data):
+    def insert_after(self, prev_node, value):
         # Insert a new node after a given previous node
 
-    def delete_node(self, data):
-        # Delete a node with the given data from the linked list
+    def delete_node(self, value):
+        # Delete a node with the given value from the linked list
 
     def display(self):
         # Display the elements of the linked list
 
-    def search(self, data):
-        # Search for a node with the given data in the linked list
+    def search(self, value):
+        # Search for a node with the given value in the linked list
 
     def access_by_index(self, index):
-        # Access the data of the node at the given index in the linked list
+        # Access the value of the node at the given index in the linked list
 
     def size(self):
         # Get the number of nodes in the linked list
 
 ```
+
+Built-In Packages:
+
+*Note: Java and Go have doubly-linked list implementations*
+
+- Python - None
+
+- Java - java.util.LinkedList
+    ```
+    import java.util.LinkedList;
+
+    public class Main {
+        public static void main(String[] args) {
+            LinkedList<Integer> linkedList = new LinkedList<>();
+
+            linkedList.add(1);
+            linkedList.add(2);
+            linkedList.add(3);
+
+            System.out.println(linkedList); // Output: [1, 2, 3]
+        }
+    }
+    ```
+
+- Go - container/list
+
+    ```
+    package main
+
+    import (
+    	"container/list"
+    	"fmt"
+    )
+
+    func main() {
+    	myList := list.New()
+
+    	myList.PushBack(1)
+    	myList.PushBack(2)
+    	myList.PushBack(3)
+
+    	for element := myList.Front(); element != nil; element = element.Next() {
+    		fmt.Println(element.Value)
+    	}
+    }
+    ```

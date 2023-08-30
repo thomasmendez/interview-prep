@@ -1,6 +1,12 @@
 name: Go Tests
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - '**/go/**'
+  pull_request:
+    paths:
+      - '**/go/**'
 
 env:
   GO111MODULE: on
